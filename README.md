@@ -9,6 +9,7 @@ A preview of the final product can be found at <https://citybikes-dashboard-solu
 <hr>
 
 <h2>Table of Challenges:</h2>
+
 Challenge 0: **Setting Up The Repository Locally**
 
 <h3>Data Loaders:</h3>
