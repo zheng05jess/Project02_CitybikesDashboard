@@ -8,10 +8,10 @@ A preview of the final product can be found at <https://citybikes-dashboard-solu
 
 <hr>
 
-###Table of Challenges:
+<h2>Table of Challenges:</h2>
 Challenge 0: **Setting Up The Repository Locally**
 
-####Data Loaders:
+<h3>Data Loaders:</h3>
 
 Challenge 1: **Specs for Network Data Loader (`network.json.js`)**
 >Challenge 1.1: Completing the `parse_network` function.
@@ -19,7 +19,7 @@ Challenge 1: **Specs for Network Data Loader (`network.json.js`)**
 Challenge 2: **Specs for Stations Data Loader (`stations.json.js`)**
 >Challenge 2.1: Completing the `parse_stations` function.
 
-####Pages:
+<h3>Pages:</h3>
 
 Challenge 3: **Specs for CityBikes Dashboard Home Page (`index.md`)**
 >Challenge 3.1: Importing data from the data loaders.
@@ -34,7 +34,7 @@ Challenge 4: **Specs for Bike Types Dashboard Page (`bike-types.md`)**
 Challenge 5: **Specs for Station Demand Visualization Page (`station-demand.md`)**
 >Challenge 5.1: Importing data from the data loaders.
 
-####Components:
+<h3>Components:</h3>
 
 Challenge 6: **Specs for Station Demand Visualization Component (`station-demand-plot.js`)**
 >Challenge 6.1: Title
@@ -58,7 +58,7 @@ Challenge 7: **Specs for Bike Type Plot Component(`bike-type-plot.js`)**
 >
 >Challenge 7.5: Color
 
-####Deployment:
+<h3>Deployment:</h3>
 
 Challenge 8: **Deploying Your Dashboard**
 >Challenge 8.1: Setting Up Local Configurations
