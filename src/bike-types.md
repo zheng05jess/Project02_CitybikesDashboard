@@ -47,7 +47,7 @@ const selected_station = // your code here
 <!-- PROVIDED code: Displays the visualization you made in bike-type-plot.js.-->
 
 ```js
-const free_bikes_available = selected_station_data.get("free_bikes");
+const free_bikes_available = selected_station.get("free_bikes");
 ```
 
 <div class="grid grid-cols-1">
