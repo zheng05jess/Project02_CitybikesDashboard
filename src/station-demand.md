@@ -2,7 +2,7 @@
 <!-- HINT: Reference the documentation given in the instructions! -->
 ---
 toc: false
-theme: [ocean-floor]
+theme: [light, wide, alt, cotton]
 ---
 
 
