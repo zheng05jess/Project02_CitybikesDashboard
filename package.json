@@ -9,12 +9,19 @@
     "observable": "observable"
   },
   "dependencies": {
-    "@observablehq/framework": "^1.12.0"
+    "@observablehq/framework": "^1.13.3"
   },
   "devDependencies": {
     "rimraf": "^5.0.5"
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "name": "project02_citybikesdashboard_starter",
+  "version": "1.0.0",
+  "description": "This repository provides the starter code files necessary for the CityBikes Dashboard assignment.",
+  "main": "observablehq.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
