@@ -19,13 +19,13 @@ theme: [light, wide, alt, cotton]
 ```js
 // loads the network data from the data loader
 // this returns an array!
-const network_info = // your code here
+const network_info = FileAttachment("network.json").json();
 ```
 
 ```js
 // loads the stations data from the data loader
 // this returns a Map!
-const stations = // your code here
+const stations = FileAttachment("stations.json").json();
 ```
 
 
@@ -38,4 +38,21 @@ const stations = // your code here
 <div class="grid grid-cols-2">
     <div class="card" style="text-align: center;">See the <a href="/bike-types.html"><b>bike types dashboard page</b></a> for information on bike type availability at each of the stations in the network.</div>
     <div class="card" style="text-align: center;">See the <a href="/station-demand.html"><b>station demand visualization page</b></a> for information on the demand of the stations in the network.</b>.</div>
+</div>
+
+<div class="grid grid-cols-3">
+  <div class="card" style="text-align: center;">
+    <h3>Total Stations</h3>
+    <p>There are <b>${Object.keys(stations).length}</b> stations in this network.</p>
+  </div>
+
+  <div class="card" style="text-align: center;">
+    <h3>Network Info</h3>
+    <p>This network is called <b>${network_info.name}</b> in <b>${network_info.city}</b>.</p>
+  </div>
+
+  <div class="card" style="text-align: center;">
+    <h3>Location</h3>
+    <p>Latitude: <b>${network_info.latitude}</b><br>Longitude: <b>${network_info.longitude}</b></p>
+  </div>
 </div>
