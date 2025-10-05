@@ -40,7 +40,7 @@ const stations_map = await FileAttachment("./data/stations.json").json();
 <!-- PROVIDED code: Converts the stations_map into a flat array for easy indexing by the visualization. -->
 ```js
 // Convert nested station data into a flat array of objects
-const stations_array = Object.entries(stations).map(([station_name, info]) => ({
+const stations_array = Object.entries(stations_map).map(([station_name, info]) => ({
     name: info.name,
     free_bikes: info.free_bikes,
     empty_slots: info.empty_slots,

@@ -39,7 +39,7 @@ const stations_map = FileAttachment("./data/stations.json").json();
 // selector dropdown for stations
 // do not use multiple: true for the selector
 // this data of the selected station is stored in select_station and passed into bike-type-plot.js component for visualization!
-const selected_station = Inputs.select(Object.keys(stations), {
+const selected_station = Inputs.select(Object.keys(stations_map), {
   label: "Select a station:",
   multiple: false
 });
