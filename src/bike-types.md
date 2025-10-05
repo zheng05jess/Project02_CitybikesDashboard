@@ -28,7 +28,7 @@ import {bike_type_plot} from "./components/bike-type-plot.js";
 ```js
 // this variable stores the loaded stations data from the data loader
 // this returns a Map!
-const stations_map = FileAttachment("./data/stations.json").json();
+const stations_map = await FileAttachment("/data/stations.json").json();
 ```
 
 
@@ -45,7 +45,6 @@ const selected_station = Inputs.select(Object.keys(stations_map), {
 });
 
 ```
-
 
 
 <!-- PROVIDED code: Displays the visualization you made in bike-type-plot.js.-->

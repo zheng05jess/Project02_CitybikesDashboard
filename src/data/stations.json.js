@@ -1,50 +1,47 @@
 // Function to fetch data from the specified API endpoint
-async function json(url) {
+async function fetchJson(url) {
     const response = await fetch(url, { cache: "no-store" });
     if (!response.ok) throw new Error(`fetch failed: ${response.status}`);
     return await response.json();
   }
   
-  // Variable to store the returned json from the API
-  const pgh_stations = await json(`https://api.citybik.es/v2/networks/pittsburgh`);
-  
   // Function to parse the data on each station and place it into a dictionary
-  function parse_stations(data){
-      // Map is a non-primitive type in JS that can be used as a dictionary 
-      // station_data is a dictionary to store all station data
-      const station_data = new Map();
-      data.network.stations.forEach(station => {
-          // inner dictionary for each information field
-          const station_info = new Map();
+  function parseStations(data) {
+    const stationData = new Map();
   
-          // CHALLENGE 2.1
-          // Your code here
-          // Add information_field:quantity to the inner dictionary using .set() 
-          station_info.set("name", station.name);
-          station_info.set("free_bikes", station.free_bikes);
-          station_info.set("empty_slots", station.empty_slots);
-          station_info.set("normal_bikes", station.extra.normal_bikes);
-          station_info.set("ebikes", station.extra.ebikes);
-        
-          // Adds to the station_data dictionary with the key-value pair of name:info (where info is a dictionary)
-          station_data.set(station.name, station_info);
-      });
+    data.network.stations.forEach(station => {
+      const stationInfo = new Map();
   
-      // Convert Map to plain object for serialization so stringify can be used
-      // You don't have to worry about this  
-      const plain_object = Object.fromEntries(
-          [...station_data.entries()].map(([stationId, infoMap]) => [
-              stationId,
-              Object.fromEntries(infoMap) // Convert inner Map to object
-          ])
-      );
+      // Only use fields that exist in the API response
+      stationInfo.set("name", station.name);
+      stationInfo.set("free_bikes", station.free_bikes);
+      stationInfo.set("empty_slots", station.empty_slots);
+      stationInfo.set("total_slots", station.extra.slots);
+      stationInfo.set("address", station.extra.address);
   
-      // returns the plain dictionary for use with stringify
-      return plain_object;
+      // Add to stationData map keyed by station name
+      stationData.set(station.name, stationInfo);
+    });
+  
+    // Convert Map to plain object for JSON serialization
+    const plainObject = Object.fromEntries(
+      [...stationData.entries()].map(([stationId, infoMap]) => [
+        stationId,
+        Object.fromEntries(infoMap)
+      ])
+    );
+  
+    return plainObject;
   }
   
-  // stations stores the output of the parsed data
-  const stations = parse_stations(pgh_stations);
+  // Main function to fetch and process stations
+  async function main() {
+    const pghStations = await fetchJson('https://api.citybik.es/v2/networks/pittsburgh');
+    const stations = parseStations(pghStations);
   
-  // used for getting the output quickly in the terminal, equivalent to CURL
-  process.stdout.write(JSON.stringify(stations));
+    // Output JSON to stdout (or you can save to a file if needed)
+    process.stdout.write(JSON.stringify(stations, null, 2));
+  }
+  
+  // Run main
+  main().catch(err => console.error(err));

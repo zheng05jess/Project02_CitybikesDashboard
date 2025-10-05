@@ -19,13 +19,13 @@ theme: [light, wide, alt, cotton]
 ```js
 // loads the network data from the data loader
 // this returns an array!
-const network_info = FileAttachment("./data/network.json").json();
+const network_info = FileAttachment("/data/network.json").json();
 ```
 
 ```js
 // loads the stations data from the data loader
 // this returns a Map!
-const stations = FileAttachment("./data/stations.json").json();
+const stations = FileAttachment("/data/stations.json").json();
 ```
 
 
